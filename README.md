@@ -6,7 +6,7 @@ UdaciCards an app for quick learning, if you're having issue while learning and 
 -Start Quiz :  You can start the quiz whenever you feel good go.
 ## Important Tip
 
-Please use Yarn to install and create the native app because at time of writing this readme file, there is bug in npm and it's working while you testing this app. 
+Please use Yarn to install and create the native app because at time of writing this readme file, there is bug in npm and it's not working while you testing this app. 
 
 ## Table of Contents
 
