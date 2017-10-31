@@ -15,10 +15,8 @@ class AddDeck extends Component {
 
     this.props.addDeck(deckName)
 
-  /* Save to local store as optional */
-    saveDeckTitle(deckName)
-
-   /* this.setState({deckName: ''});   */
+  /* Save to local store as optional 
+    saveDeckTitle(deckName)  */  
 
     this.props.navigation.navigate('DeckList');
   }
@@ -36,7 +34,7 @@ class AddDeck extends Component {
             onChangeText={(deckName) => this.setState({deckName})}
             value={this.state.deckName}
           />
-          <TouchableOpacity style={[styles.mainBtn, { marginTop: 5 }]} onPress={() => this._addDeck()}>
+          <TouchableOpacity style={[styles.BtnSubmit, { marginTop: 5 }]} onPress={() => this._addDeck()}>
             <Text style={{color: '#f7f7f7'}}>Submit</Text>
           </TouchableOpacity>
         </View>
@@ -68,7 +66,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 3,
   },
-  mainBtn: {
+  BtnSubmit: {
     borderRadius: 4,
     paddingVertical: 12,
     paddingHorizontal: 40,

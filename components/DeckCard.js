@@ -7,14 +7,23 @@ export default class DeckCard extends Component {
      
     return (
       <TouchableOpacity style={styles.cardContainer} onPress={() => navigation.navigate('DeckView', { name, count, questions })}>
-        <Text style={{fontSize: 22, color: '#f7f7f7', fontWeight: '700'}}>{name}</Text>
-        <Text style={{fontSize: 14, color: '#f7f7f7'}}>{`${count} cards`}</Text>
+        <Text style={styles.title}>{name}</Text>
+        <Text style={styles.count}>{`${count} cards`}</Text>
       </TouchableOpacity>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  title:{
+    fontSize: 22, 
+    color: '#f7f7f7',
+     fontWeight: '700',
+    },
+  count:{
+    fontSize: 14, 
+    color: '#f7f7f7',
+  },
   cardContainer: {
     marginLeft: 20,
     marginRight: 20,

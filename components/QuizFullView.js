@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { SimpleLineIcons } from '@expo/vector-icons';
-import { NavigationActions } from 'react-navigation';
-import { setLocalNotification, clearLocalNotification } from '../utils/helpers';
+import React, { Component } from 'react'
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
+import { SimpleLineIcons } from '@expo/vector-icons'
+import { NavigationActions } from 'react-navigation'
+import { setLocalNotification, clearLocalNotification } from '../utils/helpers'
+import { orange, red} from '../utils/Color'
 
 export default class QuizFullView extends Component {
   
@@ -19,11 +20,13 @@ export default class QuizFullView extends Component {
   }
   render() {
     const { score, totalNumber } = this.props.navigation.state.params;
-    let message 
+    let message, sColor
     if(score > 0){
       message = 'Congratulations !'
-    } else{
+      sColor = orange
+    } else {
       message = ':( Please try again !'
+      sColor = red
     }
     return (
       <View style={{flex: 1, alignItems: 'center'}}>
@@ -33,12 +36,12 @@ export default class QuizFullView extends Component {
             size={38}
             color="#333333"
           />
-          <Text style={styles.message}>
+          <Text style={[styles.message, {color: sColor}]}>
            {message}
           </Text>
         </View>
         <View style={[styles.scoreContainer, styles.container]}>
-          <Text style={{fontSize: 14, color: '#333333'}}>
+          <Text style={styles.finalScore}>
             Final Score
           </Text>
           <View style={styles.scoreViw}>
@@ -48,7 +51,7 @@ export default class QuizFullView extends Component {
           </View>
         </View>
         <View style={[styles.btnContainer, styles.container]}>
-          <TouchableOpacity style={[styles.secondaryBtn, { marginTop: 10 }]} onPress={() => this.toHome()}>
+          <TouchableOpacity style={[styles.secondaryBtn]} onPress={() => this.toHome()}>
             <Text style={{color: '#333333'}}>Back to Home</Text>
           </TouchableOpacity>
         </View>
@@ -58,6 +61,10 @@ export default class QuizFullView extends Component {
 }
 
 const styles = StyleSheet.create({
+  finalScore:{
+    fontSize: 14, 
+    color: '#333333',
+  },
   scoreViw:{
     backgroundColor: 'rgba(51, 51, 51, 0.9)',
      borderRadius: 3, 
@@ -72,8 +79,7 @@ const styles = StyleSheet.create({
   },
   message:{
     fontSize: 28, 
-    fontWeight: '700', 
-    color: '#ffc859',
+    fontWeight: '700',     
   },
   container: {
     justifyContent: 'center',
@@ -95,5 +101,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#333333',
     alignItems: 'center',
+    marginTop: 10,
   },
 });

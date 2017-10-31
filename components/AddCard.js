@@ -21,9 +21,7 @@ class AddCard extends Component {
     }) 
 
     /* Save to local store as optional
-    addCardToDeck(deck, question, answer) */
-
-    /*this.setState({ question: '', answer: '' })*/
+    addCardToDeck(deck, question, answer) */    
      
     this.props.navigation.navigate('DeckList')
   }
@@ -39,7 +37,7 @@ class AddCard extends Component {
           onChangeText={(question) => this.setState({question})}
           value={this.state.question}
         />
-        <Text style={[styles.labelText, { marginTop: 10 }]}>
+        <Text style={[styles.labelText]}>
           Answer
         </Text>
         <TextInput
@@ -48,7 +46,7 @@ class AddCard extends Component {
           onChangeText={(answer) => this.setState({answer})}
           value={this.state.answer}
         />
-        <TouchableOpacity style={[styles.mainBtn, { marginTop: 10 }]} onPress={() => {this._addQuestion()}}>
+        <TouchableOpacity style={[styles.BtnSubmit]} onPress={() => {this._addQuestion()}}>
           <Text style={{color: '#f7f7f7'}}>Submit</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
@@ -57,11 +55,12 @@ class AddCard extends Component {
 }
 
 const styles = StyleSheet.create({
-  mainBtn: {
+  BtnSubmit: {
     borderRadius: 4,
     paddingVertical: 12,
     paddingHorizontal: 40,
     backgroundColor: '#333333',
+    marginTop: 10,
   },
   textInput: {
     height: 40,
@@ -73,6 +72,7 @@ const styles = StyleSheet.create({
   labelText: {
     fontSize: 26,
     fontWeight: '700',
+    marginTop: 10,
   },
 });
 

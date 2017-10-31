@@ -10,16 +10,16 @@ export default class DeckView extends Component {
       <View style={{flex: 1}}>
         <View style={styles.DeckHeader}>
           
-          <Text style={[styles.title, { marginTop: 10 }]}>{name}</Text>
-          <Text style={{fontSize: 20, color: '#333333'}}>{`${count} cards`}</Text>
+          <Text style={[styles.title]}>{name}</Text>
+          <Text style={styles.count}>{`${count} cards`}</Text>
         </View>
         <View style={styles.DeckBtns}>
           {count !== 0 &&
-            <TouchableOpacity style={styles.mainBtn} onPress={() => navigation.navigate('QuizView', { questions, totalNumber: count, score: 0 })}>
+            <TouchableOpacity style={styles.BtnSubmit} onPress={() => navigation.navigate('QuizView', { questions, totalNumber: count, score: 0 })}>
               <Text style={{color: '#f7f7f7'}}>Start Quiz</Text>
             </TouchableOpacity>
           }
-          <TouchableOpacity style={[styles.secondaryBtn, { marginTop: 10 }]} onPress={() => navigation.navigate('AddCard', { name })}>
+          <TouchableOpacity style={[styles.secondaryBtn]} onPress={() => navigation.navigate('AddCard', { name })}>
             <Text style={{color: '#333333'}}>Add Card</Text>
           </TouchableOpacity>
         </View>
@@ -29,6 +29,7 @@ export default class DeckView extends Component {
 }
 
 const styles = StyleSheet.create({
+  Count: {fontSize: 20, color: '#333333'},
   DeckHeader: {
     flex: 3,
     justifyContent: 'center',
@@ -43,8 +44,9 @@ const styles = StyleSheet.create({
     fontSize: 27,
     fontWeight: '600',
     color: '#333333',
+    marginTop: 10,
   },
-  mainBtn: {
+  BtnSubmit: {
     borderRadius: 4,
     paddingVertical: 12,
     paddingHorizontal: 40,
@@ -56,5 +58,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 39,
     borderWidth: 1,
     borderColor: '#333333',
+    marginTop: 10,
   },
 });

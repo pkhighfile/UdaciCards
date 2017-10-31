@@ -6,16 +6,13 @@ import { getDecks } from '../actions';
 import { getListDecks } from '../utils/api'
 
 class DeckList extends Component {
-  /*constructor(props) {
-    super(props);
-  }
+  /*
   componentDidMount() {
     this.updateList()
   }
 
   async updateList() {   
-    const _deckList = await getListDecks() || {}
-    this.props.dispatch(getDecks(_deckList.Decks))  
+    const _deckList = await getListDecks() || {}   
     console.warn('Warn from the DeckList',_deckList.Decks)
   }*/
   render() {
