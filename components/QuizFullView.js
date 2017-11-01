@@ -1,27 +1,56 @@
-import React, { Component } from 'react'
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
-import { SimpleLineIcons } from '@expo/vector-icons'
-import { NavigationActions } from 'react-navigation'
-import { setLocalNotification, clearLocalNotification } from '../utils/helpers'
-import { orange, red} from '../utils/Color'
+import React, {Component} from 'react'
+import {View, Text, TouchableOpacity} from 'react-native'
+import {SimpleLineIcons} from '@expo/vector-icons'
+import {NavigationActions} from 'react-navigation'
+
+import {setLocalNotification, clearLocalNotification} from '../utils/helpers'
+import {orange, red, grayTw} from '../utils/Color'
+import {styles} from '../utils/styles'
 
 export default class QuizFullView extends Component {
-  
-  componentDidMount() {     
+
+  componentDidMount = () => {
     clearLocalNotification().then(setLocalNotification);
   }
+
   toHome = () => {
-    this.props.navigation.dispatch(NavigationActions.reset({
-      index: 0,
-      actions: [
-        NavigationActions.navigate({ routeName: 'Home' })
-      ]
-    }));
+    this
+      .props
+      .navigation
+      .dispatch(NavigationActions.reset({
+        index: 0,
+        actions: [NavigationActions.navigate({routeName: 'Home'})]
+      }))
   }
+
+  BacktoDeck = (name, QL, totalNumber) => {   
+    this
+      .props
+      .navigation
+      .navigate('DeckView', {
+        name: name,
+        count: totalNumber,
+        questions: QL
+      })
+  }
+
+  ResetQuiz = (QL, name, totalNumber) => {
+    this
+      .props
+      .navigation
+      .navigate('QuizView', {QL, questions: QL, name, totalNumber: totalNumber, score: 0})
+  }
+
   render() {
-    const { score, totalNumber } = this.props.navigation.state.params;
-    let message, sColor
-    if(score > 0){
+    
+    const {QL, name, score, totalNumber} = this.props.navigation.state.params   
+
+     
+
+    const questions = QL
+    let message,
+      sColor
+    if (score > 0) {
       message = 'Congratulations !'
       sColor = orange
     } else {
@@ -29,15 +58,19 @@ export default class QuizFullView extends Component {
       sColor = red
     }
     return (
-      <View style={{flex: 1, alignItems: 'center'}}>
-        <View style={[styles.headerContainer, styles.container]}>
-          <SimpleLineIcons
-            name="trophy"
-            size={38}
-            color="#333333"
-          />
-          <Text style={[styles.message, {color: sColor}]}>
-           {message}
+      <View style={{
+        flex: 1,
+        alignItems: 'center'
+      }}>
+        <View style={styles.scoreHeadcontainer}>
+          <SimpleLineIcons name="trophy" size={38} color={grayTw}/>
+          <Text
+            style={[
+            styles.message, {
+              color: sColor
+            }
+          ]}>
+            {message}
           </Text>
         </View>
         <View style={[styles.scoreContainer, styles.container]}>
@@ -46,61 +79,37 @@ export default class QuizFullView extends Component {
           </Text>
           <View style={styles.scoreViw}>
             <Text style={styles.scoreTxt}>
-              {score} / {totalNumber}
+              {score}
+              / {totalNumber}
             </Text>
           </View>
         </View>
         <View style={[styles.btnContainer, styles.container]}>
-          <TouchableOpacity style={[styles.secondaryBtn]} onPress={() => this.toHome()}>
-            <Text style={{color: '#333333'}}>Back to Home</Text>
+
+          <TouchableOpacity
+            style={[styles.secondaryBtn]}
+            onPress={() => this.ResetQuiz(QL, name, totalNumber)}>
+            <Text style={{
+              color: grayTw
+            }}>Reset Quiz</Text>
           </TouchableOpacity>
+
+          <TouchableOpacity
+            style={[styles.secondaryBtn]}
+            onPress={() => this.BacktoDeck(name, QL, totalNumber )}>
+            <Text style={{
+              color: orange
+            }}>Back to Deck</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={[styles.secondaryBtn]} onPress={() => this.toHome()}>
+            <Text style={{
+              color: red
+            }}>Back to Home</Text>
+          </TouchableOpacity>
+
         </View>
       </View>
-    );
+    )
   }
 }
-
-const styles = StyleSheet.create({
-  finalScore:{
-    fontSize: 14, 
-    color: '#333333',
-  },
-  scoreViw:{
-    backgroundColor: 'rgba(51, 51, 51, 0.9)',
-     borderRadius: 3, 
-     marginTop: 6,
-  },
-  scoreTxt:{
-    color: '#ffd659',
-    paddingVertical: 6, 
-    paddingHorizontal: 40, 
-    fontWeight: '700', 
-    fontSize: 18,
-  },
-  message:{
-    fontSize: 28, 
-    fontWeight: '700',     
-  },
-  container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  headerContainer: {
-    flex: 3,
-  },
-  scoreContainer: {
-    flex: 2,
-  },
-  btnContainer: {
-    flex: 2,
-  },
-  secondaryBtn: {
-    width: 155,
-    borderRadius: 4,
-    paddingVertical: 11,
-    borderWidth: 1,
-    borderColor: '#333333',
-    alignItems: 'center',
-    marginTop: 10,
-  },
-});

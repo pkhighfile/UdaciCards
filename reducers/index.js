@@ -1,4 +1,4 @@
-import { GET_DECKS, ADD_DECK, ADD_CARD } from '../actions';
+import {GET_DECKS, ADD_DECK, ADD_CARD} from '../actions';
 
 const initialState = {
   React: {
@@ -7,8 +7,7 @@ const initialState = {
       {
         question: 'What is React?',
         answer: 'A library for managing user interfaces'
-      },
-      {
+      }, {
         question: 'Where do you make Ajax requests in React?',
         answer: 'The componentDidMount lifecycle event'
       }
@@ -19,40 +18,46 @@ const initialState = {
     questions: [
       {
         question: 'What is a closure?',
-        answer: 'The combination of a function and the lexical environment within which that function was declared.'
+        answer: 'The combination of a function and the lexical environment within which that func' +
+          'tion was declared.'
       }
     ]
   }
 }
- 
+
 function decks(state = initialState, action) {
-  switch(action.type) {
+  switch (action.type) {
     case GET_DECKS:
-    return {
-      ...state,
-      ...action.decks
-    }
+      return {
+        ...state,
+        ...action.decks
+      }
     case ADD_DECK:
       const createDeck = {
         [action.deck]: {
           title: action.deck,
           questions: []
         }
-      } 
+      }
       return {
-        ...state, 
+        ...state,
         ...createDeck
       }
     case ADD_CARD:
-      const { deck, question, answer } = action.card
+      const {deck, question, answer} = action.card
       return {
         ...state,
         [deck]: {
           ...state[deck],
-          questions: [...state[deck].questions, { question, answer }]
+          questions: [
+            ...state[deck].questions, {
+              question,
+              answer
+            }
+          ]
         }
       }
-    default: 
+    default:
       return state
   }
 }

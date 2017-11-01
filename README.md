@@ -224,3 +224,28 @@ There are a few steps you may want to take to troubleshoot these kinds of errors
 If you're not able to scan the QR code, make sure your phone's camera is focusing correctly, and also make sure that the contrast on the two colors in your terminal is high enough. For example, WebStorm's default themes may [not have enough contrast](https://github.com/react-community/create-react-native-app/issues/49) for terminal QR codes to be scannable with the system barcode scanners that the Expo app uses.
 
 If this causes problems for you, you may want to try changing your terminal's color theme to have more contrast, or running Create React Native App from a different terminal. You can also manually enter the URL printed by the packager script in the Expo app's search bar to load it manually.
+
+## How to Contribute
+
+Find any typos? Have another resource you think should be included? Contributions are welcome!
+
+First, fork this repository.
+
+![Fork Icon](images/fork-icon.png)
+
+Next, clone this repository to your desktop to make changes.
+
+```sh
+$ git clone {YOUR_REPOSITORY_CLONE_URL}
+$ cd UdaciCards
+```
+
+Once you've pushed changes to your local repository, you can issue a pull request by clicking on the green pull request icon.
+
+![Pull Request Icon](images/pull-request-icon.png)
+
+Instead of cloning the repository to your desktop, you can also go to `README.md` in your fork on GitHub.com, hit the Edit button (the button with the pencil) to edit the file in your browser, then hit the `Propose file change` button, and finally make a pull request. 
+
+## License
+
+The contents of this repository are covered under the [MIT License](LICENSE).
