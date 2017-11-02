@@ -4,15 +4,16 @@ import DeckCard from './DeckCard';
 import {connect} from 'react-redux';
 import {getDecks} from '../actions';
 import {getListDecks} from '../utils/api'
+import {styles} from '../utils/styles'
 
 class DeckList extends Component {
 
   render() {
     const {decks} = this.props;
     return (
-      <ScrollView style={{
-        flex: 1
-      }}>
+      <ScrollView style={
+        styles.flexone 
+      }>
         {Object
           .keys(decks)
           .map((deck) => <DeckCard
@@ -22,7 +23,7 @@ class DeckList extends Component {
             questions={decks[deck].questions}
             navigation={this.props.navigation}/>)}
       </ScrollView>
-    );
+    )
   }
 }
 

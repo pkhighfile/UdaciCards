@@ -24,28 +24,28 @@ class AddDeck extends Component {
   async _addDeck() {
 
     const {deckName} = this.state
+    if (deckName.length > 0) {
+      this
+        .props
+        .addDeck(deckName)
 
-    this
-      .props
-      .addDeck(deckName)
-
-    /* Save to local store as optional
+      /* Save to local store as optional
     saveDeckTitle(deckName)  */
 
-    this
-      .props
-      .navigation
-      .navigate('DeckView', {
-        name: deckName,
-        count: 0,
-        questions: []
-      }
-    )
+      this
+        .props
+        .navigation
+        .navigate('DeckView', {
+          name: deckName,
+          count: 0,
+          questions: []
+        })
+    }
   }
 
-  render() {    
+  render() {
 
-    return (     
+    return (
 
       <KeyboardAvoidingView behavior='padding' style={[styles.CardKeyBoard]}>
 
@@ -59,13 +59,11 @@ class AddDeck extends Component {
             style={styles.textInput}
             onChangeText={(deckName) => this.setState({deckName})}
             value={this.state.deckName}/>
-          <TouchableOpacity
-            style={[styles.DBtnSubmit]}
-            onPress={() => this._addDeck()}>
+          <TouchableOpacity style={[styles.DBtnSubmit]} onPress={() => this._addDeck()}>
             <Text style={{
               color: lightcreem
             }}>Submit</Text>
-          </TouchableOpacity>        
+          </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
 

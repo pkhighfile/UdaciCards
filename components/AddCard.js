@@ -25,23 +25,30 @@ class AddCard extends Component {
   async _addQuestion() {
     const {question, answer} = this.state
 
-    const deck = this.props.navigation.state.params.name
+    const {QL, deck, count} = this.props.navigation.state.params
+    if (question.length > 0 && answer.length > 0) {
+      this
+        .props
+        .addCard({deck, question, answer})
 
-    this
-      .props
-      .addCard({deck, question, answer})
-
-    /* Save to local store as optional
+      /* Save to local store as optional
     addCardToDeck(deck, question, answer) */
+      let AQ = [
+        {
+          question: question,
+          answer: answer
+        }
+      ]
+      let Counter = count + 1
+      let JL = QL.concat(AQ)
 
-    this
-      .props
-      .navigation
-      .navigate('DeckList')
+      this.props.navigation.navigate('DeckView', {name:deck, count:Counter, questions:JL})
+
+    }
   }
 
   render() {
-   
+
     return (
       <KeyboardAvoidingView behavior='padding' style={styles.CardKeyBoard}>
         <Text style={styles.labelText}>
@@ -68,11 +75,11 @@ class AddCard extends Component {
           <Text style={{
             color: lightcreem
           }}>Submit</Text>
-        </TouchableOpacity>     
+        </TouchableOpacity>
 
       </KeyboardAvoidingView>
     )
   }
 }
 
-export default connect(null, { addCard })(AddCard)
+export default connect(null, {addCard})(AddCard)

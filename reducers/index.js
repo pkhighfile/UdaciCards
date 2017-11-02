@@ -1,4 +1,4 @@
-import {GET_DECKS, ADD_DECK, ADD_CARD} from '../actions';
+import {GET_DECKS, ADD_DECK, ADD_CARD} from '../actions/actionTypes'
 
 const initialState = {
   React: {

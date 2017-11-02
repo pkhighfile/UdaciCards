@@ -96,13 +96,11 @@ export default class QuizView extends Component {
         hidetxt = 'View Question'
       }
       return (
-        <View style={{
-          flex: 1
-        }}>
+        <View style={styles.flexone    }>
           <View style={styles.headerContainer}>
-            <Text style={{
-              fontSize: 16
-            }}>
+            <Text style={
+              styles.fontsize16
+            }>
               {totalNumber - restQuestions.length}/{totalNumber}
             </Text>
           </View>

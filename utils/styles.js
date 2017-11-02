@@ -1,24 +1,33 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native'
 
 export const styles = StyleSheet.create({
+
+    flexone: {
+        flex: 1,
+    },
+
+    fontsize16: {
+        fontSize:16,
+    },
+
     marginTopTen: {
-        marginTop: 10
+        marginTop: 10,
     },
     marginTopFive: {
-        marginTop: 5
+        marginTop: 5,
     },
 
     CardKeyBoard: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
 
     BtnSubmit: {
         borderRadius: 4,
         paddingVertical: 12,
         paddingHorizontal: 40,
-        backgroundColor: '#333333'
+        backgroundColor: '#333333',
     },
     DBtnSubmit: {
         borderRadius: 4,
@@ -32,42 +41,42 @@ export const styles = StyleSheet.create({
         width: 280,
         borderColor: '#333333',
         borderWidth: 1,
-        borderRadius: 3
+        borderRadius: 3,
     },
 
     labelText: {
         fontSize: 26,
         fontWeight: '700',
-        marginTop: 10
+        marginTop: 10,
     },
 
     form: {
         flex: 2,
-        alignItems: 'center'
+        alignItems: 'center',
     },
 
     title: {
         fontSize: 32,
         color: '#333333',
         fontWeight: '500',
-        textAlign: 'center'
+        textAlign: 'center',
     },
 
     headerContainer: {
         flex: 1,
         paddingTop: 10,
-        paddingLeft: 10
+        paddingLeft: 10,
     },
 
     cardContainer: {
         flex: 4,
-        alignItems: 'center'
+        alignItems: 'center',
     },
 
     formContainer: {
         flex: 3,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
 
     BtnCorrect: {
@@ -76,7 +85,7 @@ export const styles = StyleSheet.create({
         borderRadius: 4,
         paddingVertical: 12,
         backgroundColor: '#009900',
-        alignItems: 'center'
+        alignItems: 'center',
     },
 
     BtnInCorrect: {
@@ -85,7 +94,7 @@ export const styles = StyleSheet.create({
         borderRadius: 4,
         paddingVertical: 12,
         backgroundColor: '#b71845',
-        alignItems: 'center'
+        alignItems: 'center',
     },
 
     btnViewAns: {
@@ -95,7 +104,7 @@ export const styles = StyleSheet.create({
         paddingVertical: 11,
         borderWidth: 1,
         borderColor: '#333333',
-        alignItems: 'center'
+        alignItems: 'center',
     },
 
     flipCard: {
@@ -104,19 +113,19 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#fff',
-        backfaceVisibility: 'hidden'
+        backfaceVisibility: 'hidden',
     },
 
     flipText: {
         fontSize: 12,
         color: '#000',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
     },
 
     titleSec: {
         fontSize: 22,
         color: '#f7f7f7',
-        fontWeight: '700'
+        fontWeight: '700',
     },
 
     count: {
@@ -139,30 +148,30 @@ export const styles = StyleSheet.create({
         },
         shadowColor: 'rgba(0, 0, 0, 0.24)',
         shadowOpacity: 0.8,
-        alignItems: 'center'
+        alignItems: 'center',
     },
 
     Count: {
         fontSize: 20,
-        color: '#333333'
+        color: '#333333',
     },
 
     DeckHeader: {
         flex: 3,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     DeckBtns: {
         flex: 2,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
 
     titleTopTen: {
         fontSize: 27,
         fontWeight: '600',
         color: '#333333',
-        marginTop: 10
+        marginTop: 10,
     },
 
     secondaryBtn: {
@@ -171,25 +180,25 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 39,
         borderWidth: 1,
         borderColor: '#333333',
-        marginTop: 10
+        marginTop: 10,
     },
 
     finalScore: {
         fontSize: 14,
-        color: '#333333'
+        color: '#333333',
     },
 
     scoreViw: {
         backgroundColor: 'rgba(51, 51, 51, 0.9)',
         borderRadius: 3,
-        marginTop: 6
+        marginTop: 6,
     },
     scoreTxt: {
         color: '#ffd659',
         paddingVertical: 6,
         paddingHorizontal: 40,
         fontWeight: '700',
-        fontSize: 18
+        fontSize: 18,
     },
     message: {
         fontSize: 28,
@@ -198,18 +207,23 @@ export const styles = StyleSheet.create({
     scoreHeadcontainer: {
         flex: 2,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
 
     container: {
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
 
     scoreContainer: {
-        flex: 2
+        flex: 2,
     },
     btnContainer: {
-        flex: 2
-    }
+        flex: 2,
+    },
+    scoreMContainer: {
+        flex: 1,
+        alignItems: 'center',
+    },
+    
 })

@@ -21,9 +21,7 @@ export default class DeckView extends Component {
     const navigation = this.props.navigation
     const {name, count, questions} = this.props.navigation.state.params
     return (
-      <View style={{
-        flex: 1
-      }}>
+      <View style={styles.flexone }>
         <View style={styles.DeckHeader}>
 
           <Text style={[styles.titleTopTen]}>{name}</Text>
@@ -35,7 +33,7 @@ export default class DeckView extends Component {
             onPress={() => navigation.navigate('QuizView', {
             QL: questions,
             questions,
-            name:name,
+            name: name,
             totalNumber: count,
             score: 0
           })}>
@@ -43,10 +41,14 @@ export default class DeckView extends Component {
               color: lightcreem
             }}>Start Quiz</Text>
           </TouchableOpacity>
-}
+         }
           <TouchableOpacity
             style={[styles.secondaryBtn]}
-            onPress={() => navigation.navigate('AddCard', {name})}>
+            onPress={() => navigation.navigate('AddCard', {
+            QL: questions,
+            deck: name,
+            count: count           
+            })}>
             <Text style={{
               color: grayTw
             }}>Add Card</Text>
@@ -59,7 +61,7 @@ export default class DeckView extends Component {
               color: red
             }}>Back To Home</Text>
           </TouchableOpacity>
-          
+
         </View>
       </View>
 

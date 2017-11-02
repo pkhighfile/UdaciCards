@@ -58,10 +58,7 @@ export default class QuizFullView extends Component {
       sColor = red
     }
     return (
-      <View style={{
-        flex: 1,
-        alignItems: 'center'
-      }}>
+      <View style={ styles.scoreMContainer }>
         <View style={styles.scoreHeadcontainer}>
           <SimpleLineIcons name="trophy" size={38} color={grayTw}/>
           <Text
